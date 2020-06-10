@@ -9,3 +9,19 @@ function map(array, callBack) {
 }
 
 
+function reduce(array, callBack, startingPoint) {
+  let val;
+  if (startingPoint !== undefined) {
+    val = startingPoint;
+    for (const element of array) {
+      val = callBack(val, element);
+    }
+  } else {
+    val = array[0];
+    array = array.slice(1);
+    for (const element of array) {
+      val = callBack(val, element);
+    }
+  }
+  return val;
+}
